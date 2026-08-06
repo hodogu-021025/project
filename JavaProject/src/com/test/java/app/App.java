@@ -24,7 +24,7 @@ public class App {
 			case "점수 현황", "점수현황" -> Service.scoreList();
 			case "세트 설정", "세트설정" -> Service.roundSet();
 			case "게임 시작", "게임시작" -> Service.gameStart();
-			case "선수 리셋", "선수리셋" -> Service.playerReset();
+			case "전체 리셋", "전체리셋" -> Service.allReset();
 			case "메뉴 종료", "메뉴종료" -> {
 				UI.sendMessage("메뉴를 종료하였습니다.");
 				loop = false;
@@ -32,8 +32,11 @@ public class App {
 			default -> UI.sendWarning("메뉴명을 입력해주세요.");
 			}
 		}
-
 		
 	}
 		
 }
+
+//서브권
+
+//경기결과
