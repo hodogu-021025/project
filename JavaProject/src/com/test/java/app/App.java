@@ -2,7 +2,8 @@ package com.test.java.app;
 
 import java.util.Scanner;
 
-import com.test.java.service.Service;
+import com.test.java.service.gameService;
+import com.test.java.service.menuService;
 import com.test.java.ui.UI;
 
 public class App {
@@ -19,12 +20,12 @@ public class App {
 		
 		String input = scan.nextLine();
 		switch (input) {
-			case "선수 등록", "선수등록" -> Service.playerAdd();
-			case "선수 목록", "선수목록" -> Service.playerList();
-			case "점수 현황", "점수현황" -> Service.scoreList();
-			case "세트 설정", "세트설정" -> Service.roundSet();
-			case "게임 시작", "게임시작" -> Service.gameStart();
-			case "전체 리셋", "전체리셋" -> Service.allReset();
+			case "선수 등록", "선수등록" -> menuService.playerAdd();
+			case "선수 목록", "선수목록" -> menuService.playerList();
+			case "점수 현황", "점수현황" -> menuService.scoreList();
+			case "세트 설정", "세트설정" -> menuService.roundSet();
+			case "게임 시작", "게임시작" -> gameService.gameStart();
+			case "전체 리셋", "전체리셋" -> menuService.allReset();
 			case "메뉴 종료", "메뉴종료" -> {
 				UI.sendMessage("메뉴를 종료하였습니다.");
 				loop = false;

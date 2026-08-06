@@ -1,6 +1,6 @@
 package com.test.java.ui;
 
-import com.test.java.service.Service;
+import com.test.java.service.menuService;
 
 public class UI {
 	
@@ -108,7 +108,7 @@ public class UI {
 				■■■■
 				
 			""");
-		Service.delay(1000);
+		menuService.delay(1000);
 		System.out.println("""
 				■■■■
 				   ■
@@ -117,7 +117,7 @@ public class UI {
 				■■■■
 				
 			""");
-		Service.delay(1000);
+		menuService.delay(1000);
 		System.out.println("""
 				  ■
 				■■■
@@ -127,7 +127,7 @@ public class UI {
 				
 			""");
 		System.out.println();
-		Service.delay(1000);
+		menuService.delay(1000);
 		System.out.println("  ■■■■■■■■■■■■■■■■");
 		System.out.println("    🏓 게임 시작");
 		System.out.println();
