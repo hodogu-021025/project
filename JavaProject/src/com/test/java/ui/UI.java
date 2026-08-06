@@ -18,6 +18,7 @@ public class UI {
 		System.out.println("   ▶️ 선수 등록 ◀️");
 		System.out.println("   ▶️ 세트 설정 ◀️");
 		System.out.println("   ▶️ 게임 시작 ◀️");
+		System.out.println("   ▶️ 경기 결과 ◀️");
 		System.out.println();
 		System.out.println("   ▶️ 선수 목록 ◀️");
 		System.out.println("   ▶️ 점수 현황 ◀️");
@@ -137,12 +138,19 @@ public class UI {
 		
 	}
 	
-	public static void duceUI() {
+	public static void deuceUI() {
 		
-		System.out.println();
-		System.out.println("  🏓 듀스 🏓");
+		System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		System.out.println("              🏓 듀스 🏓");
+		System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
 		System.out.println();
 		
+	}
+	
+	public static void resultUI() {
+		System.out.println();
+		System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		System.out.println("            🔸경기 결과🔸");
 	}
 	
 	

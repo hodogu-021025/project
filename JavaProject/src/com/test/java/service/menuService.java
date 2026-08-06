@@ -152,6 +152,35 @@ public class menuService {
 		    UI.sendMessage("정보가 리셋되었습니다!\r\n");
 		}
 	
+
+		//경기 결과
+		public static void resultList() {
+		
+		Data data = new Data();
+		List<Member> list = data.list();
+		
+		if (list.isEmpty()) {
+			UI.sendWarning("등록된 선수가 없습니다!");
+		} else {
+			for (Member member : list) {
+				UI.resultUI();
+				System.out.printf("1. %s 선수 | 승리: %d승 | 패배: %d패\r\n"
+								, member.getName1()
+								, member.getSetscore1()
+								, member.getSetscore2()
+			);
+			System.out.printf("2. %s 선수 | 승리: %d승 | 패배: %d패\r\n"
+								, member.getName2()
+								, member.getSetscore2()
+								, member.getSetscore1()
+			);
+			System.out.println();
+			}
+		}
+	}
 }
+		
+				
+				
 
 

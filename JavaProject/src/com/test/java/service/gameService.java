@@ -65,10 +65,11 @@ public class gameService {
 	            continue; 
 	        }
 
+	        //듀스
 	        if (s1 >= 10 && s2 >= 10 && s1 == s2) {
-	            UI.duceUI();
+	            UI.deuceUI();
 	        }
-
+	        
 	        System.out.print("🔥 득점한 선수: ");
 	        String player = scan.next();
 
@@ -85,7 +86,32 @@ public class gameService {
 	        } else {
 	            UI.sendWarning("선수의 이름을 정확히 입력하세요\r\n");
 	        }
+	        
+	        int totalScore = member.getScore1() + member.getScore2();
+	        // 서브 듀스 상황
+	        if (member.getScore1() >= 10 && member.getScore2() >= 10) {
+	        	if (totalScore % 2 == 0) {
+	        		serveService.serveNum = 1;
+	        		UI.sendMessage(member.getName1() + " 선수 서브입니다!\r\n");
+	        	} else {
+	        		serveService.serveNum = 2;
+	        		UI.sendMessage(member.getName2() + " 선수 서브입니다!\r\n");
+	        	}
+	        } 
+	        // 서브 일반 상황
+	        else {
+	        	if (totalScore % 4 < 2) {
+	        		serveService.serveNum = 1;
+	        		UI.sendMessage(member.getName1() + " 선수 서브입니다!\r\n");
+	        	} else {
+	        		serveService.serveNum = 2;
+	        		UI.sendMessage(member.getName2() + " 선수 서브입니다!\r\n");
+	        	}
+	        }
 	    } // while
+	    
+
+	    
 	}
 	public static void gameRunningThree() {
 		Data data = new Data();
@@ -144,7 +170,7 @@ public class gameService {
 			}
 			
 			if (s1 >= 10 && s2 >= 10 && s1 == s2) {
-				UI.duceUI();
+				UI.deuceUI();
 			}
 			
 			System.out.print("🔥 득점한 선수: ");
@@ -164,6 +190,7 @@ public class gameService {
 				UI.sendWarning("선수의 이름을 정확히 입력하세요\r\n");
 			}
 		} // while
+		
 	}
 	
 	public static void gameStart() {
@@ -181,22 +208,21 @@ public class gameService {
     	// 단판 승부
 	    } else if (menuService.roundType.equals("단판 승부")) {
 	    	
-    	UI.startUI(menuService.roundType);
-    	
-    	if (member.getName1().equals("등록된 선수가 없습니다!")||member.getName2().equals("등록된 선수가 없습니다!")) {
-	        UI.sendWarning("등록된 선수가 없습니다!");
-	    } else {
-	    	gameRunningSingle();
-	    }
+	    	if (member.getName1().equals("등록된 선수가 없습니다!")||member.getName2().equals("등록된 선수가 없습니다!")) {
+		        UI.sendWarning("등록된 선수가 없습니다!");
+		    } else {
+		    	UI.startUI(menuService.roundType);
+		    	gameRunningSingle();
+		    }
     	
     	// 3판 2선승
 	    } else if (menuService.roundType.equals("3판 2선승")) {
-	    	UI.startUI(menuService.roundType);
-	    if (member.getName1().equals("등록된 선수가 없습니다!")||member.getName2().equals("등록된 선수가 없습니다!")) {
-	        UI.sendWarning("등록된 선수가 없습니다!");
-	    } else {
-	    	gameRunningThree();
-	    }
+		    if (member.getName1().equals("등록된 선수가 없습니다!")||member.getName2().equals("등록된 선수가 없습니다!")) {
+		        UI.sendWarning("등록된 선수가 없습니다!");
+		    } else {
+		    	UI.startUI(menuService.roundType);
+		    	gameRunningThree();
+		    }
 	}
 }
 	

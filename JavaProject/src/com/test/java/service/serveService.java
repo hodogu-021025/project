@@ -24,15 +24,15 @@ public class serveService {
 			Scanner scan = new Scanner(System.in);
 	
 			System.out.print(" ▶ 서브권을 가진 선수의 번호: ");
-			int playerNum = scan.nextInt();
+			String playerNum = scan.nextLine();
 			
 			switch (playerNum) {
-				case 1 -> {
-					Serve(playerNum);
+				case "1","1번" -> {
+					Serve(1);
 					loop = false;
 				}
-				case 2 -> {
-					Serve(playerNum);
+				case "2","2번" -> {
+					Serve(2);
 					loop = false;
 				}
 				default -> UI.sendWarning("선수의 번호를 입력해주세요.");
@@ -40,30 +40,21 @@ public class serveService {
 		}
 	}
 	
-	public static void Serve(int playerNum) {
 	
+	public static int serveNum;
+	
+	public static void Serve(int playerNum) {
+		
 		Data data = new Data();
 		List<Member> list = data.list();
 		Member member = list.get(0);
 		
-		boolean loop = true;
-		
+		serveNum = playerNum;
 		if (playerNum == 1) {
-			
 			UI.sendMessage(member.getName1()+" 선수 서브입니다!\r\n");
-			member.setName1(member.getName1() + " 🏓 ");
-			member.setName2(member.getName1());
-			loop = false;
-			
 		} else if (playerNum == 2) {
-			
 			UI.sendMessage(member.getName2()+" 선수 서브입니다!\r\n");
-			member.setName2(member.getName2() + " 🏓 ");
-			member.setName1(member.getName1());
-			loop = false;
-			
 		} else {
-			
 			UI.sendWarning("선수의 번호를 입력해주세요.");
 			
 		}

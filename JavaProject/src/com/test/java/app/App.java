@@ -20,6 +20,7 @@ public class App {
 		
 		String input = scan.nextLine();
 		switch (input) {
+			case "경기 결과", "경기결과" -> menuService.resultList();
 			case "선수 등록", "선수등록" -> menuService.playerAdd();
 			case "선수 목록", "선수목록" -> menuService.playerList();
 			case "점수 현황", "점수현황" -> menuService.scoreList();
