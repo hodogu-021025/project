@@ -16,7 +16,9 @@ public class gameService {
 	    
 	    Scanner scan = new Scanner(System.in);
 	    boolean loop = true;
-
+	    
+	    serveService.ServeStart();
+	    
 	    while (loop) {
 	        int s1 = member.getScore1();
 	        int s2 = member.getScore2();
@@ -27,7 +29,7 @@ public class gameService {
 	        boolean isDeuceWin1 = (s1 >= 10 && s2 >= 10) && (s1 - s2 == 2);
 	        boolean isDeuceWin2 = (s1 >= 10 && s2 >= 10) && (s2 - s1 == 2);
 
-	        int round = member.getSetscore1() + member.getSetscore1() + 1;
+	        int round = member.getSetscore1() + member.getSetscore2() + 1;
 	        
 	        // 1번 선수 세트 승리
 	        if (isNormalWin1 || isDeuceWin1) {
@@ -103,7 +105,7 @@ public class gameService {
 			boolean isDeuceWin1 = (s1 >= 10 && s2 >= 10) && (s1 - s2 == 2);
 			boolean isDeuceWin2 = (s1 >= 10 && s2 >= 10) && (s2 - s1 == 2);
 			
-			int round = member.getSetscore1() + member.getSetscore1() + 1;
+			int round = member.getSetscore1() + member.getSetscore2() + 1;
 			
 			// 1번 선수 세트 승리
 			if (isNormalWin1 || isDeuceWin1) {
@@ -114,7 +116,7 @@ public class gameService {
 				data.saveFile(member);
 				
 				// 최종 우승 
-				if (member.getSetscore1() == 1) { 
+				if (member.getSetscore1() == 2) { 
 					UI.sendFinalWinner(member.getName1());
 					loop = false;
 				} else {

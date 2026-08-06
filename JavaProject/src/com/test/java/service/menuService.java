@@ -62,9 +62,9 @@ public class menuService {
 		    } else {
 		        for (Member member : list) {
 					UI.listUI();
-		            System.out.printf("1번 선수: %s\r\n", member.getName1()
-);
+		            System.out.printf("1번 선수: %s\r\n", member.getName1());
 		            System.out.printf("2번 선수: %s\r\n", member.getName2());
+		            System.out.println();
 		        }
 		    }
 		}
@@ -117,41 +117,41 @@ public class menuService {
 							UI.sendMessage(round);
 							loop = false;
 							roundType = round;
-							}
+				}
 				case "2" -> {
 							round = "3판 2선승";
 							UI.sendMessage(round);
 							loop = false;
 							roundType = round;
-							}
+				}
 				default -> {
 							UI.sendWarning("숫자 1, 2 중 하나를 입력해주세요.");
 							UI.roundUI();
-							}
+				}
 				}
 			}
 		}
 		
 		//전체 리셋
-				public static void allReset() {
-				    
-				    Data data = new Data();
-				    List<Member> list = data.list();
-				    Member member = list.get(0);
-				    
-				    member.setName1("등록된 선수가 없습니다!");
-				    member.setName2("등록된 선수가 없습니다!");
-				    member.setScore1(0);
-				    member.setScore2(0);
-				    member.setSetscore1(0);
-				    member.setSetscore2(0);
-				    int roundType = 0;
-				    
-			    	int result = data.saveFile(member);
-			    	
-				    UI.sendMessage("정보가 리셋되었습니다!\r\n");
-				}
-		
+		public static void allReset() {
+		    
+		    Data data = new Data();
+		    List<Member> list = data.list();
+		    Member member = list.get(0);
+		    
+		    member.setName1("등록된 선수가 없습니다!");
+		    member.setName2("등록된 선수가 없습니다!");
+		    member.setScore1(0);
+		    member.setScore2(0);
+		    member.setSetscore1(0);
+		    member.setSetscore2(0);
+		    int roundType = 0;
+		    
+	    	int result = data.saveFile(member);
+	    	
+		    UI.sendMessage("정보가 리셋되었습니다!\r\n");
+		}
+	
 }
 
 
